@@ -45,14 +45,31 @@ python3 "your path to the file" append.py
 ```
 
 ## Extract
-This file is a parser that search through the entire dataset, converting the file type from HTML to txt and store in the folder "/dataset".
+This code is a Python script that scrapes text data from HTML files stored in a specific directory using the BeautifulSoup library. The goal of the script appears is to extract text data from HTML files in order to create text-based datasets for future purposes.
+
+The script begins by importing the required libraries, including Pandas, BeautifulSoup, and requests. The os library is also imported for file system operations. The code then retrieves a list of files in a specified directory using the os.listdir() function.
+
+The script then enters a nested loop, iterating through each file in each subdirectory of the specified directory. For each file, the script opens the file using open() function, reads its contents using the BeautifulSoup library, removes all script and style elements from the HTML using a for loop and the extract() function, and then extracts the text from the remaining HTML using soup.get_text().
+
+The text is then split into lines, chunks, and concatenated together into a single string using various string manipulation functions such as splitlines(), split(), and join(). Finally, the extracted text is written to a text file named "output.txt" in a specified output directory using the open() function.
+
+In summary, this script is designed to extract text data from HTML files and store it in text files for use in machine learning tasks. The script utilizes libraries like Pandas and BeautifulSoup to read and manipulate the HTML files and uses Python's built-in string manipulation functions to extract and process the text data.
+
 ## Search
-This file is the searching engine that compared the desired mathematical tokens, variables, and definitions with the modified txt files from the output of the extract. In addition, the exact source number, line number will be stored for our research purposes. The result will be shown in the "output.txt" when the program is finished. 
+The Search.py file first imports several modules including Pandas, BeautifulSoup, and TQDM, and reads in a CSV file containing two columns of data - "var" and "context". It then uses the "os" module to list all the directories and files within a specific directory.
+
+The first loop goes through each directory within the main directory and the second loop goes through each file within each directory. It opens each file using the BeautifulSoup module, removes all script and style elements, and then extracts the text from the HTML file. It then saves the text to a file with the same name as the original file, but with "output.txt" appended to the end.
+
+After extracting text from all files, the code loops through the output files and compares each line of text with each string in the "context" column of the CSV file. If a match is found, the code prints the string, the line number, and the file name to an output file.
+
+Finally, the code deletes all the output files and moves on to the next directory. The entire process is repeated until all directories have been processed. The output is saved in a file named "test.out".
 ## Delete
 This file is automatically callable by the search file as a purpose of memory saving. The file will delete the output of the extract.py under the list of "/dateset" 
 ## Append
 This file is used to append the information from the output of seaching engine to the desired csv file. In our experiment, we found the source number for the variables of MTDE and expand the dateset with appending source number behind each variable. 
 
+## Overall Dataframe 
+![block-diagram](images/dataframe.png)
 
 # License
 * [UIUC-MLP Group] (https://mlpgroup.xyz/) 
