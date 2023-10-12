@@ -69,7 +69,7 @@ This file is automatically callable by the search file as a purpose of memory sa
 This file is used to append the information from the output of seaching engine to the desired csv file. In our experiment, we found the source number for the variables of MTDE and expand the dateset with appending source number behind each variable. 
 
 ## Overall Dataframe 
-![block-diagram](images/dataframe.png)
+![block-diagram](dataframe.png)
 
 # License
 * [UIUC-MLP Group] (https://mlpgroup.xyz/) 
